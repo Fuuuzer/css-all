@@ -1,0 +1,55 @@
+* {
+  /* font-family: sans-serif; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p {
+  display: block;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid black;
+  width: 100%;
+  padding: 20px;
+}
+
+.ex1 {
+  border: 1px solid blue;
+}
+
+/* a div que NÃO tiver um p com a classe teste irá ter o font-size de 3rem */
+div:has(p.teste) {
+  font-size: 3rem;
+}
+
+/* a section que TIVER uma div seguida de um p com a classe shrek ira ter o background blue e o fontsize 2rem */
+section:has(div > p.shrek) {
+  background: red;
+  font-size: 2rem;
+}
+
+/* section que tiver uma div com a classe amonia irá deixar a font em bold */
+section:has(div.amonia) {
+  font-weight: bold;
+}
+
+/* section que NAO tiver uma div ira pintar o bg de orange */
+
+section:not(:has(div)) {
+  background: orange;
+  font-size: 3rem;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
